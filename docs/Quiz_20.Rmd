@@ -1,0 +1,222 @@
+---
+title: "Quiz 2" 
+author: <i> Oya Ekici </i> 
+date: <i> Mart 4, 2024 </i> 
+output: html_document
+runtime: shiny_prerendered
+    
+# data:
+#     label: "Input dataset:"
+#     value: results.csv
+#     input: file
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+library(learnr)
+library(gradethis)
+library(grid)
+library(png)
+#devtools::install_github("rstudio-education/gradethis")
+#devtools::install_github("rundel/learnrhash")
+library(learnrhash)
+# devtools::install_github("tidyverse/dsbox",force = TRUE)
+# library(dsbox)
+library(googlesheets4)
+
+# tutorial options
+tutorial_options(
+  # code running in exercise times out after 30 seconds
+  exercise.timelimit = 30, 
+  # use gradethis for checking
+  exercise.checker = gradethis::grade_learnr
+  )
+library(thematic)   # rstudio/thematic@0a6b4b7
+library(tidyverse)
+library(showtext)
+gradethis_setup()
+
+```
+
+
+
+<style>
+body {
+text-align: justify}
+</style>
+
+### **Gelişmelere Bakalım...** 
+
+#_____________________________________________________#
+
+```{r Q2, echo=FALSE, cache=FALSE}
+quiz(caption = " ",
+  question("1- DescTools paketinde ZTest() isimli bir fonksiyon vardır.",
+    answer("Doğru",correct = TRUE),
+    answer("Yanlış")
+  ),
+  question("2- 20'nin 2'lik tabana göre logaritmasını veren R kodu hangisidir?",
+    answer("log(20, 2)",correct = TRUE),
+    answer("ln(20, 2)"),
+    answer("log(2, 20)"),
+    answer("log(x = 20, base = 2)",correct = TRUE),
+    answer("log(x = 2, base = 20)"),
+    answer("log(base = 2, x = 20)",correct = TRUE)
+  ),
+    question("3- R'de bir sayının karekökünü döndürmek için aşağıdaki fonksiyonlardan hangisi kullanılabilir?",
+    answer("sqroot"),
+    answer("sqrt()", correct = TRUE),
+    answer("sr()"),
+    answer("Sqrt()"),
+    answer("srqt()")
+  ),
+    question("4- Aşağıdakilerden hangisi R dili için base (temel) pakettir?",
+    answer("caret"),
+    answer("util"),
+    answer("lang"),
+    answer("tidyr"),
+    answer("tools", correct = TRUE)
+  ),
+    question("5- R oturumunda yüklü olan tüm paketlerin bir listesini görüntüleyen kod aşağıdakilerden hangisidir?",
+    answer("lib()"),
+    answer("library(packages)"),
+    answer("library()", correct = TRUE),
+    answer('library("packages")'),
+    answer("library(packages=all)")
+  ),
+    question("6- Aşağıdakilerden hangisi R dili için non-base (temel olmayan) pakettir?",
+    answer("stats"),
+    answer("utils"),
+    answer("graphics"),
+    answer("dplyr", correct = TRUE),
+    answer("datasets")
+  ),
+    question("7- Aşağıdakilerden hangisi R Console'da çalıştırıldığında, Console'dan çıkmadan R programını yeniden başlatır?",
+    answer("*R"),
+    answer("#R"),
+    answer("$ R", correct = TRUE),
+    answer("&& R"),
+    answer("& R ")
+  ),
+    question("8- R'de paketleri kurmak için kullanılan fonksiyon aşağıdakilerden hangisidir?",
+    answer("load.packages()"),
+    answer("require.packages()"),
+    answer("import.packages()"),
+    answer("install.packages()", correct = TRUE)
+  ),
+    question("9- Görevimiz, değeri -12 olan w ile değeri -9 olan z şeklinde iki değişkeni tanımlayarak, sonraki adımda bu değişkenlerden sadece w'yi çalışma ortamından silen kodu yazmaktır. Aşağıdakilerden hangisi bu görevi doğru yapar?",
+    answer("w <- -12; z <- -9 <br>
+rm()", message = "Bu doğru olmaz, çünkü bu kod iki değişkeni de siler!"),
+    answer("w = -12; z = -9 <br>
+ls(w)"),
+    answer("w = -12 <br>
+    z = -9 <br>
+rm(w)", correct = TRUE),
+    answer("w = -12; z = -9 <br>
+rm('w')" , correct = TRUE)
+  ),
+    question("10- Görevimiz, değeri 3 olan a ile değeri 8 olan b şeklinde iki değişkeni tanımlayarak, bunların çalışma ortamındaki nesneler arasında olduğunu gösteren kodu yazmaktır. Aşağıdakilerden hangisi bu görevi doğru yapar?",
+    answer("a <- 3, b <- 8 <br>
+ls()" ),
+    answer("a = 3 <br>
+    b = 8 <br>
+ls()", correct = TRUE),
+    answer(" a -> 3 <br>
+    b -> 8 <br>
+lo()"),
+    answer(" a = 3; b = 8 <br>
+ls()", correct = TRUE)
+  )
+)
+
+```
+
+
+### Referanslar
+
+-   R Core Team, (2023). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL <https://www.R-project.org/>.
+
+-   R Cookbook, 2nd ed ., JD Long and Paul Teetor, (2019). Copyright JD Long and Paul Teetor, 978-1-492-04068-2.
+
+-   Istatistik ve Ekonometri Uygulamaları ile R, Mehmet Hakan Satman, (2010). Türkmen Kitabevi, Istanbul, 978-605-4259-14-4.
+
+-   Welcome to the tidyverse, (2019). Wickham et al. Journal of Open Source Software, 4(43), 1686, <https://doi.org/10.21105/joss.01686>
+
+-   An Introduction to R, A Manual for R, Version 4.3.3 (2024-02-29). Copyright © 1990 W. N. Venables; Copyright © 1992 W. N. Venables & D. M. Smith; Copyright © 1997 R. Gentleman & R. Ihaka; Copyright © 1997, 1998 M. Maechler; Copyright © 1999–2023 R Core Team, Link: <https://cran.r-project.org/doc/manuals/r-release/R-intro.html>
+
+-   Aden-Buie, G., D. Chen, G. Grolemund, et al. (2021). gradethis: Automated Feedback for Student Exercises in learnr Tutorials. https://pkgs.rstudio.com/gradethis/, https://rstudio.github.io/learnr/.
+
+-   Allaire, J., Y. Xie, J. McPherson, et al. (2021). rmarkdown: Dynamic Documents for R. R package version 2.11. URL: https://CRAN.R-project.org/package=rmarkdown.
+
+-   Bryan, J. (2021). googlesheets4: Access Google Sheets using the Sheets API V4. R package version 1.0.0. URL: https://CRAN.R-project.org/package=googlesheets4.
+
+-   Rundel, C. and M. Cetinkaya-Rundel (2021). learnrhash: Tools for hashing learnr sessions. R package version 0.2.0.
+
+-   Schloerke, B., J. Allaire, B. Borges, et al. (2021). learnr: Interactive Tutorials for R. https://rstudio.github.io/learnr/.
+
+```{r, fig.asp=0.2,echo=FALSE}
+library(grid)
+library(png)
+img <- readPNG("/Users/jnrbayesian/Desktop/Kodlama/Interactive_Rmd_Files/logos.png")
+grid.raster(img,width = '0.3',interpolate = TRUE, x=unit(0,"npc"),y=unit(0.5,"npc"),just = "left")
+```
+
+## Quiz Teslim
+
+Tebrikler! Quiz ve dolayısıyla ders sona erdi!
+
+---
+
+```{r context="server"}
+learnrhash::encoder_logic()
+```
+
+
+```{r encode, echo=FALSE}
+learnrhash::encoder_ui(
+  ui_before = div(strong("Generate ile oluşturduğunuz şifrelenmiş metni aşağıdaki formda ilgili yere yapıştırarak gönderiniz."), br(), br()),
+  ui_after  = learnrhash::iframe_ui(
+    src = "https://docs.google.com/forms/d/e/1FAIpQLSfXXSBtObTybaUgEN9qNt21MgvuDvGOoxbD2fBZvL6RbmYkjg/viewform",
+    width="900px", height= "1000px"
+  )
+)
+```
+
+
+## Deşifre
+
+Bu işlem için [`learnrhash`](https://github.com/rundel/learnrhash) paketinin şifreleme-deşifreleme fonksiyonu kullanılmıştır. 
+
+Önceki adımdaki şifreli metni aşağıdaki metin kutusuna yapıştırabilir ve **Decode!** butonunu ile kendi sonucunuzun özetini görüntüleyebilirsiniz.
+
+```{r context="server"}
+learnrhash::decoder_logic()
+```
+
+```{r decode, echo=FALSE}
+learnrhash::decoder_ui()
+```
+
+### Sonuçlara ilişkin ham verinin görüntülenmesi
+
+Toplanan sonuçlara ilişkin veri linki: [here](https://docs.google.com/spreadsheets/d/1zwwY9OP-qRJYD6iiPCHK7mtz6vEYMPagNyf2B67Rk6Q/edit?resourcekey#gid=486776579).
+
+<iframe width="900" height="400" src="https://docs.google.com/spreadsheets/d/1zwwY9OP-qRJYD6iiPCHK7mtz6vEYMPagNyf2B67Rk6Q/edit?resourcekey#grid=486776579;headers=false"></iframe>
+
+### Sonuçların Analizi
+
+<!-- ```{r, echo=FALSE} -->
+<!-- library(readr) -->
+<!-- library(googlesheets4) -->
+<!-- #tutorial_marks <- read_rds("www/tutorial-marks.rds") -->
+<!-- tutorial_marks <- read_rds("tutorial-marks.rds") -->
+<!-- ``` -->
+
+**Öğrenci Skorları**
+
+<!-- ```{r} -->
+<!-- tutorial_marks$student_scores -->
+<!-- ``` -->
+
+
+#### <font color="cornflowerblue"/>   *Fin!*  <font>
